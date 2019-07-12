@@ -34,5 +34,13 @@ extension FirebaseNetwork {
     /// - Parameter whereIDequals: String
     func queryItems(whereIDequals: String) {
     }
+    /// Authorize user in firebase attempting login
+    ///
+    /// - Parameters:
+    ///   - email: String
+    ///   - password: String
+    func authorize(email: String, password: String) {
+        
+    }
 }
 

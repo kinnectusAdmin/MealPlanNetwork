@@ -18,6 +18,8 @@
 		DA0CB2092228F416009C23FB /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB2082228F416009C23FB /* NetworkProvider.swift */; };
 		DA0CB21A222964B6009C23FB /* WebNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB219222964B6009C23FB /* WebNetWork.swift */; };
 		DA0CB2262229728D009C23FB /* MealPlanUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB2252229728D009C23FB /* MealPlanUserUseCase.swift */; };
+		DA115A1E22BFC00900436370 /* MainFeedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA115A1D22BFC00900436370 /* MainFeedUseCase.swift */; };
+		DA2CE64322BC42B300693354 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2CE64222BC42B300693354 /* Environment.swift */; };
 		DAA04C72222AC49A00DACE77 /* MealPlanDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA04C71222AC49A00DACE77 /* MealPlanDomain.framework */; };
 		DAA04C74222AC62E00DACE77 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA04C73222AC62E00DACE77 /* FirebaseAPI.swift */; };
 		DAA04C76222AC79E00DACE77 /* WebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA04C75222AC79E00DACE77 /* WebAPI.swift */; };
@@ -52,6 +54,8 @@
 		DA0CB2082228F416009C23FB /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		DA0CB219222964B6009C23FB /* WebNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebNetWork.swift; sourceTree = "<group>"; };
 		DA0CB2252229728D009C23FB /* MealPlanUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanUserUseCase.swift; sourceTree = "<group>"; };
+		DA115A1D22BFC00900436370 /* MainFeedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedUseCase.swift; sourceTree = "<group>"; };
+		DA2CE64222BC42B300693354 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		DAA04C71222AC49A00DACE77 /* MealPlanDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MealPlanDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAA04C73222AC62E00DACE77 /* FirebaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		DAA04C75222AC79E00DACE77 /* WebAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAPI.swift; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				DA0CB2052228F3C6009C23FB /* UseCaseProvider.swift */,
+				DA115A1D22BFC00900436370 /* MainFeedUseCase.swift */,
 				DA0CB2252229728D009C23FB /* MealPlanUserUseCase.swift */,
 				DAA04C78222AD0A700DACE77 /* EventUseCase.swift */,
 				DAA04C7A222AD44400DACE77 /* StudentAccountUseCase.swift */,
@@ -149,6 +154,7 @@
 			children = (
 				DA0CB2012228EEDC009C23FB /* Network.swift */,
 				DA0CB2082228F416009C23FB /* NetworkProvider.swift */,
+				DA2CE64222BC42B300693354 /* Environment.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 				DA0CB2262229728D009C23FB /* MealPlanUserUseCase.swift in Sources */,
 				DAA04C74222AC62E00DACE77 /* FirebaseAPI.swift in Sources */,
 				DA0CB21A222964B6009C23FB /* WebNetWork.swift in Sources */,
+				DA2CE64322BC42B300693354 /* Environment.swift in Sources */,
 				DAA04C7D222AD4AF00DACE77 /* StudentAccountNetwork.swift in Sources */,
 				DAA04C7B222AD44400DACE77 /* StudentAccountUseCase.swift in Sources */,
 				DAA04C79222AD0A700DACE77 /* EventUseCase.swift in Sources */,
@@ -301,6 +308,7 @@
 				DAA04C76222AC79E00DACE77 /* WebAPI.swift in Sources */,
 				DA0CB2022228EEDC009C23FB /* Network.swift in Sources */,
 				DA0CB1FA2228EB42009C23FB /* EventNetwork.swift in Sources */,
+				DA115A1E22BFC00900436370 /* MainFeedUseCase.swift in Sources */,
 				DA0CB1F82228E991009C23FB /* UserNetwork.swift in Sources */,
 				DA0CB2062228F3C6009C23FB /* UseCaseProvider.swift in Sources */,
 			);

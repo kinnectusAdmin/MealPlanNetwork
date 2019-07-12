@@ -9,18 +9,40 @@
 import Foundation
 import MealPlanDomain
 public final class NetworkProvider {
-    //TODO: Make individual networks
-    func provideUserNetwork() -> UserNetwork {
-        return UserNetwork(network: FirebaseNetwork(api: .users))
+    /// Current evironment of all services will determine type of network/service returned
+    private let environment: Environment = Environment.current
+    /// Provides User network backed by firebase
+    ///
+    /// - Returns: UserNetwork
+    func provideUserNetwork() -> UserNetworkProtocol {
+        switch environment {
+        case .development, .production:
+            return UserNetwork(network: FirebaseNetwork(api: .users))
+        case .testing:
+            return MockUserNetwork()
+        }
     }
-    func provideDiningEventNetwork() -> EventNetwork<DiningEvent> {
-        return EventNetwork(network: WebNetwork(api: .dining))
+    /// Provide event network backed by web api
+    ///
+    /// - Returns: EventNetwork
+    func provideEventNetwork() -> EventNetworkProtocol {
+        switch environment {
+        case .development, .production:
+            return EventNetwork(diningNetwork: WebNetwork(api: .dining), transferNetwork: WebNetwork(api: .transfer), conversionNetwork: WebNetwork(api: .conversion))
+        case .testing:
+            return MockEventNetwork()
+        }
     }
-    func provideTransferEventNetwork() -> EventNetwork<TransferEvent> {
-        return EventNetwork(network: WebNetwork(api: .transfer))
-    }
-    func provideConversionEventNetwork() -> EventNetwork<ConversionEvent> {
-        return EventNetwork(network: WebNetwork(api: .conversion))
+    /// Provide student account network backed by web api
+    ///
+    /// - Returns: StudentAccountNetwork
+    func provideStudenAccountNetwork() -> StudentAccountNetworkProtocol {
+        switch environment {
+        case .development, .production:
+            return StudentAccountNetwork(network: WebNetwork(api: .account))
+        case .testing:
+            return MockStudentAccountNetwork()
+        }
+        
     }
 }
-

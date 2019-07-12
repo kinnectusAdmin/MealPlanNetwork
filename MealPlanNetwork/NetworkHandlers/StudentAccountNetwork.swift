@@ -9,7 +9,11 @@
 import Foundation
 import CleanModelViewIntent
 import MealPlanDomain
-class StudentAccountNetwork: NetworkHandler {
+
+protocol StudentAccountNetworkProtocol: NetworkHandler {
+    func fetchStudentAccount(id: String)
+}
+public class StudentAccountNetwork: StudentAccountNetworkProtocol {
     private var network: Network
     public var serviceResult: Box<Result> = Box(ResultState.loading)
     init(network: Network) {
@@ -21,32 +25,22 @@ extension StudentAccountNetwork {
     /// Employ network to get details of student account
     ///
     /// - Parameter id: String
-    func fetchStudentAccount(id: String) {
+    public func fetchStudentAccount(id: String) {
         network.fetchItem(id: id)
-    }
-    /// Send transfer request to school server
-    ///
-    /// - Parameter transfer: TransferEvent
-    func recordTransfer(transfer: TransferEvent) {
-        network.createItem(item: transfer)
-    }
-    /// Send conversion request to school server
-    ///
-    /// - Parameter conversion: ConversionEvent
-    func recordConversion(conversion: ConversionEvent) {
-        network.createItem(item: conversion)
     }
 }
 extension StudentAccountNetwork {
-    enum StudentAccountNetworkResult: Result {
+    public enum StudentAccountNetworkResult: Result {
         case didFetchStudentAccount(StudentAccount)
-        case didRecordTransfer
-        case didRecordConversion
+        case fetchStudentAccountFailure
     }
 }
-extension TransferEvent: NetworkItem {
+class MockStudentAccountNetwork: StudentAccountNetworkProtocol {
+    var serviceResult: Box<Result> = Box(ResultState.loading)
+    let passing: Bool = true
+    func fetchStudentAccount(id: String) {
+        serviceResult.accept(passing ? StudentAccountNetwork.StudentAccountNetworkResult.didFetchStudentAccount(StudentAccount.mock) : .fetchStudentAccountFailure)
+    }
     
-}
-extension ConversionEvent: NetworkItem {
     
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+/// Utilize to handle Firebase relative objects in server
 enum FirebaseAPI {
     case users
     var collection: String {

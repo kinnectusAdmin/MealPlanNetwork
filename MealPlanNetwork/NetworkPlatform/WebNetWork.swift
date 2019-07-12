@@ -18,19 +18,28 @@ class WebNetwork: Network {
 }
 extension WebNetwork {
     
-    func fetchAllItems() {
-        
-    }
-    
-    func fetchItem(id: String) {
-    }
-    
-    func createItem(item: NetworkItem) {
-    }
-    
-    func updateItem(item: NetworkItem) {
-    }
-    func queryItems(whereIDequals: String) {
-        
-    }
+    /// Fetch items in external server
+    func fetchAllItems() {}
+    /// Fetch specific id buy id in external server
+    ///
+    /// - Parameter id: NetworkItem
+    func fetchItem(id: String) {}
+    /// Create an item in external database
+    ///
+    /// - Parameter item: NetworkItem
+    func createItem(item: NetworkItem) {}
+    /// Update item in external database
+    ///
+    /// - Parameter item: NetworkItem
+    func updateItem(item: NetworkItem) {}
+    /// Query items by id in external database
+    ///
+    /// - Parameter whereIDequals: NetworkItem
+    func queryItems(whereIDequals: String) {}
+    /// Authorize user in firebase attempting login
+    ///
+    /// - Parameters:
+    ///   - email: String
+    ///   - password: String
+    func authorize(email: String, password: String) {}
 }

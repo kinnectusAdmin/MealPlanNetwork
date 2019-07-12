@@ -16,6 +16,7 @@ protocol Network: class {
     func createItem(item: NetworkItem)
     func updateItem(item: NetworkItem)
     func queryItems(whereIDequals: String)
+    func authorize(email: String, password: String)
 }
 enum NetworkResult {
     case loading
@@ -29,6 +30,9 @@ protocol ServiceListener {
     func bindService(service: Service)
 }
 extension ServiceListener where Self: Service {
+    /// Binds service result, relaying results back to another service
+    ///
+    /// - Parameter service: Service
     func bindService(service: Service) {
         service.serviceResult.bindListener { [weak self] result, _ in
             self?.serviceResult.accept(result)
@@ -36,6 +40,9 @@ extension ServiceListener where Self: Service {
     }
 }
 extension NetworkHandler {
+    /// Binds the network listener and passes results to service result
+    ///
+    /// - Parameter network: Network
     func bindNetwork(network: Network) {
         network.networkResult.bindListener { result, _ in
             switch result {
@@ -45,7 +52,6 @@ extension NetworkHandler {
                 self.serviceResult.accept(ResultState.error)
             case let .success(networkResult):
                 self.serviceResult.accept(networkResult)
-                
             }
         }
     }
