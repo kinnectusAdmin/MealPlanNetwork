@@ -49,7 +49,7 @@ extension NetworkHandler {
             case .loading:
                 self.serviceResult.accept(ResultState.loading)
             case .error:
-                self.serviceResult.accept(ResultState.error)
+                self.serviceResult.accept(ResultState.error(message: "Error"))
             case let .success(networkResult):
                 self.serviceResult.accept(networkResult)
             }
